@@ -62,14 +62,14 @@ workflows:
   version: 2
   run-tests:
     jobs:
-      unit_tests:
-        filters:
-          branches:
-            only: master
+      - unit_tests:
+          filters:
+            branches:
+              only: master
 
-      e2e_tests:
-        requires:
-          - unit_tests
-        filters:
-          branches:
-            only: master
+      - e2e_tests:
+          requires:
+            - unit_tests
+          filters:
+            branches:
+              only: master
