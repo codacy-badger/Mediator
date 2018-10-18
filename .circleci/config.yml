@@ -26,7 +26,7 @@ jobs:
 
       - run:
           name: Unit Tests
-          command: npm run test:unit --coverage && cat ./coverage/lcov.info | codacy-coverage
+          command: yarn test:unit --coverage && cat ./coverage/lcov.info | codacy-coverage
 
   e2e_tests:
     docker:
