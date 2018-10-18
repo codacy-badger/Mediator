@@ -5,4 +5,6 @@
 </template>
 
 <style lang="scss">
+@import 'assets/styles/tailwind.postcss';
+
 </style>
