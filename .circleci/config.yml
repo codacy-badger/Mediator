@@ -58,18 +58,18 @@ jobs:
           name: E2E Tests
           command: $(npm bin)/cypress run --record --key $CYPRESS_RECORD_KEY
 
-  workflows:
-    version: 2
-    run-tests:
-      jobs:
-        unit_tests:
-          filters:
-            branches:
-              only: master
+workflows:
+  version: 2
+  run-tests:
+    jobs:
+      unit_tests:
+        filters:
+          branches:
+            only: master
 
-        e2e_tests:
-          requires:
-            - unit_tests
-          filters:
-            branches:
-              only: master
+      e2e_tests:
+        requires:
+          - unit_tests
+        filters:
+          branches:
+            only: master
