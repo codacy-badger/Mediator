@@ -1,17 +1,20 @@
-import { MutationTree, ActionTree } from 'vuex';
+import { Module } from 'vuex';
 
-import state, { State } from './state';
-import mutations, { Mutations } from './mutations';
-import actions from './actions';
+import { state } from './state';
+import { getters } from './getters';
+import { actions } from './actions';
+import { mutations } from './mutations';
+import { SessionState } from '../types';
+import { RootState } from '../';
 
-export interface SessionState {
-  state: State;
-  mutations: MutationTree<State>;
-  actions: ActionTree<State, any>;
-}
+const namespaced: boolean = true;
 
-export default {
+const session: Module<SessionState, RootState> = {
+  namespaced,
   state,
-  mutations,
+  getters,
   actions,
+  mutations,
 };
+
+export default session;

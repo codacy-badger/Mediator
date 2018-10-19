@@ -1,26 +1,29 @@
 import Vue from 'vue';
-import Vuex, { Store } from 'vuex';
+import Vuex, { StoreOptions } from 'vuex';
 import VuexPersistence from 'vuex-persist';
 
-import config, { ConfigState } from './config';
-import session, { SessionState } from './session';
+import { ConfigState, SessionState } from './types';
+import config from './config';
+import session from './session';
 
 Vue.use(Vuex);
 
-export interface State {
+export interface RootState {
   config: ConfigState;
   session: SessionState;
 }
 
-const PersistConfig = new VuexPersistence<State>({
+const PersistConfig = new VuexPersistence<RootState>({
   modules: ['config'],
   storage: window.localStorage,
 });
 
-export default new Store<State>({
+const store: StoreOptions<RootState> = {
   modules: {
     config,
     session,
   },
   plugins: [PersistConfig.plugin],
-});
+};
+
+export default new Vuex.Store<RootState>(store);

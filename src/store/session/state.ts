@@ -1,5 +1,3 @@
-import { MutationTree } from 'vuex';
+import { SessionState } from '../types';
 
-export interface Mutations<MutationTree> {}
-
-export default {};
+export const state: SessionState = {};

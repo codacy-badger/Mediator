@@ -1,3 +1,3 @@
-export interface State {}
+import { ConfigState } from '../types';
 
-export default {};
+export const state: ConfigState = {};

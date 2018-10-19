@@ -1,11 +1,20 @@
-import state from './state';
-import mutations from './mutations';
-import actions from './actions';
+import { Module } from 'vuex';
 
-export interface ConfigState {}
+import { state } from './state';
+import { getters } from './getters';
+import { actions } from './actions';
+import { mutations } from './mutations';
+import { ConfigState } from '../types';
+import { RootState } from '../';
 
-export default {
+const namespaced: boolean = true;
+
+const config: Module<ConfigState, RootState> = {
+  namespaced,
   state,
-  mutations,
+  getters,
   actions,
+  mutations,
 };
+
+export default config;
