@@ -68,8 +68,6 @@ workflows:
               only: master
 
       - e2e_tests:
-          requires:
-            - unit_tests
           filters:
             branches:
               only: master
